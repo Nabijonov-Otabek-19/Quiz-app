@@ -141,6 +141,10 @@ public class QuizController {
         return currentPos < MAX_COUNT;
     }
 
+    public void setCurrentPos(int currentPos) {
+        this.currentPos = currentPos;
+    }
+
     public void testCheck(String userAnswer) {
         if (list_flag.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
             correctCount++;

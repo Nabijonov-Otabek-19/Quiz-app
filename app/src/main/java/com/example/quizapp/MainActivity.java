@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.quizapp.Controller.QuizController;
+
 public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("MissingInflatedId")
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         findViewById(R.id.card_flags).setOnClickListener(view -> {
+            setGame();
             Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
             intent.putExtra("number", 1);
             startActivity(intent);
@@ -52,5 +55,10 @@ public class MainActivity extends AppCompatActivity {
 //            intent.putExtra("number", 6);
 //            startActivity(intent);
 //        });
+    }
+
+    private void setGame() {
+        QuizController controller = QuizController.getInstance();
+        controller.setCurrentPos(0);
     }
 }

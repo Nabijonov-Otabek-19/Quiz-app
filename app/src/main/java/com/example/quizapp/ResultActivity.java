@@ -35,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
 
         correctAns.setText(String.valueOf(controller.getCorrectCount()));
         wrongtAns.setText(String.valueOf(controller.getWrongCount()));
-        skippedAns.setText(String.valueOf(controller.getMAX_COUNT() - controller.getCorrectCount() - controller.getWrongCount()));
+        skippedAns.setText(String.valueOf(controller.getSkipCount()));
 
         back2menu.setOnClickListener(view -> {
             finish();
