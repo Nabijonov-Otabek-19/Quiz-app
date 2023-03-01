@@ -26,12 +26,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        findViewById(R.id.card_logos).setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-//            intent.putExtra("number", 2);
-//            startActivity(intent);
-//        });
-//
+        findViewById(R.id.card_logos).setOnClickListener(view -> {
+            setGame();
+            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+            intent.putExtra("number", 2);
+            startActivity(intent);
+        });
+
 //        findViewById(R.id.card_animals).setOnClickListener(view -> {
 //            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
 //            intent.putExtra("number", 3);

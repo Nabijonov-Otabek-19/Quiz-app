@@ -85,10 +85,13 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_variant1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
@@ -112,10 +115,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_variant2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
@@ -139,10 +145,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_variant3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
@@ -166,10 +175,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_variant4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
+        android:background="?android:selectableItemBackground"
+        android:clickable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 

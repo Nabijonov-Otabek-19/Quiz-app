@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -31,6 +33,7 @@ public class QuestionActivity extends AppCompatActivity {
     private AppCompatButton buttonSkip;
     private AppCompatButton buttonNext;
     private AppCompatImageView buttonBack;
+    private List<CardView> cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,12 @@ public class QuestionActivity extends AppCompatActivity {
         currentPos = findViewById(R.id.textCurrentPos);
         textAction = findViewById(R.id.textAction);
         image = findViewById(R.id.img_flag);
+
+        cards = new ArrayList<>(4);
+        cards.add(findViewById(R.id.card_variant1));
+        cards.add(findViewById(R.id.card_variant2));
+        cards.add(findViewById(R.id.card_variant3));
+        cards.add(findViewById(R.id.card_variant4));
 
         radios = new ArrayList<>(4);
         radios.add(findViewById(R.id.radio1));
@@ -137,11 +146,9 @@ public class QuestionActivity extends AppCompatActivity {
     private String getUserAnswer() {
         int pos = 0;
         for (int i = 0; i < radios.size(); i++) {
-            Log.d("TTT", radios.get(i).isChecked() + "");
             if (radios.get(i).isChecked())
                 pos = i;
         }
-        Log.d("TTT", "pos +" + pos);
         return variants.get(pos).getText().toString();
     }
 
