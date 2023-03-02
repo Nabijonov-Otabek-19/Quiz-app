@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="Correct answers"
+                android:text="Correct"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="Wrong answers"
+                android:text="Wrong"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -99,7 +99,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:text="Skipped answers"
+                android:text="Skipped"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />

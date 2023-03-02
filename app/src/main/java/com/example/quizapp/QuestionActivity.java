@@ -33,7 +33,10 @@ public class QuestionActivity extends AppCompatActivity {
     private AppCompatButton buttonSkip;
     private AppCompatButton buttonNext;
     private AppCompatImageView buttonBack;
-    private List<CardView> cards;
+
+    private int number;
+
+    private TestData testData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,12 +55,6 @@ public class QuestionActivity extends AppCompatActivity {
         currentPos = findViewById(R.id.textCurrentPos);
         textAction = findViewById(R.id.textAction);
         image = findViewById(R.id.img_flag);
-
-        cards = new ArrayList<>(4);
-        cards.add(findViewById(R.id.card_variant1));
-        cards.add(findViewById(R.id.card_variant2));
-        cards.add(findViewById(R.id.card_variant3));
-        cards.add(findViewById(R.id.card_variant4));
 
         radios = new ArrayList<>(4);
         radios.add(findViewById(R.id.radio1));
@@ -90,30 +87,42 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void loadQuestions() {
         Intent intent = getIntent();
-        int number = intent.getIntExtra("number", 0);
+        number = intent.getIntExtra("number", 0);
 
         if (number == 1) {
-            describeTestData(quizController.getNextTestDataFlag());
+            quizController.setCurrentList(number);
+            testData = quizController.getNextTestDataFlag();
+            describeTestData(testData);
             textAction.setText("Flags");
 
         } else if (number == 2) {
-            describeTestData(quizController.getNextTestDataLogo());
+            quizController.setCurrentList(number);
+            testData = quizController.getNextTestDataLogo();
+            describeTestData(testData);
             textAction.setText("Logos");
 
         } else if (number == 3) {
-            describeTestData(quizController.getNextTestDataAnimal());
+            quizController.setCurrentList(number);
+            testData = quizController.getNextTestDataAnimal();
+            describeTestData(testData);
             textAction.setText("Animal");
 
         } else if (number == 4) {
-            describeTestData(quizController.getNextTestDataFood());
+            quizController.setCurrentList(number);
+            testData = quizController.getNextTestDataFood();
+            describeTestData(testData);
             textAction.setText("Foods");
 
         } else if (number == 5) {
-            describeTestData(quizController.getNextTestDataFruit());
+            quizController.setCurrentList(number);
+            testData = quizController.getNextTestDataFruit();
+            describeTestData(testData);
             textAction.setText("Fruits");
 
         } else if (number == 6) {
-            describeTestData(quizController.getNextTestDataVegetable());
+            quizController.setCurrentList(number);
+            testData = quizController.getNextTestDataVegetable();
+            describeTestData(testData);
             textAction.setText("Vegetables");
         }
     }
@@ -154,8 +163,25 @@ public class QuestionActivity extends AppCompatActivity {
 
     private void checkData() {
         if (quizController.isLastQuestion()) {
-            describeTestData(quizController.getNextTestDataFlag());
-            buttonNext.setEnabled(false);
+            if (number == 1) {
+                describeTestData(quizController.getNextTestDataFlag());
+                buttonNext.setEnabled(false);
+            } else if (number == 2) {
+                describeTestData(quizController.getNextTestDataLogo());
+                buttonNext.setEnabled(false);
+            } else if (number == 3) {
+                describeTestData(quizController.getNextTestDataAnimal());
+                buttonNext.setEnabled(false);
+            } else if (number == 4) {
+                describeTestData(quizController.getNextTestDataFood());
+                buttonNext.setEnabled(false);
+            } else if (number == 5) {
+                describeTestData(quizController.getNextTestDataFruit());
+                buttonNext.setEnabled(false);
+            } else if (number == 6) {
+                describeTestData(quizController.getNextTestDataVegetable());
+                buttonNext.setEnabled(false);
+            }
         } else {
             startActivity(new Intent(this, ResultActivity.class));
             Toast.makeText(this, "FINISH", Toast.LENGTH_SHORT).show();

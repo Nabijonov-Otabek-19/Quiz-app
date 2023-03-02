@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF6F6"
+    android:background="@drawable/back2"
     android:orientation="vertical"
     tools:context=".QuestionActivity">
 
@@ -15,7 +15,8 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/blue">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btn_back"
@@ -92,26 +93,30 @@
         android:layout_marginTop="16dp"
         android:background="?android:selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp">
 
             <RadioButton
                 android:id="@+id/radio1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:gravity="center_vertical"
                 android:textColor="@color/black"
                 tools:text="suyuqlik" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -122,26 +127,30 @@
         android:layout_marginTop="12dp"
         android:background="?android:selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp">
 
             <RadioButton
                 android:id="@+id/radio2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:gravity="center_vertical"
                 android:textColor="@color/black"
                 tools:text="suyuqlik" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -152,26 +161,30 @@
         android:layout_marginTop="12dp"
         android:background="?android:selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp">
 
             <RadioButton
                 android:id="@+id/radio3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:gravity="center_vertical"
                 android:textColor="@color/black"
                 tools:text="suyuqlik" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -182,26 +195,30 @@
         android:layout_marginTop="12dp"
         android:background="?android:selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="8dp">
 
             <RadioButton
                 android:id="@+id/radio4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="30dp"
+                android:gravity="center_vertical"
                 android:textColor="@color/black"
                 tools:text="suyuqlik" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <Space

@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
         findViewById(R.id.card_logos).setOnClickListener(view -> {
             setGame();
             Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
@@ -33,33 +32,39 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-//        findViewById(R.id.card_animals).setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-//            intent.putExtra("number", 3);
-//            startActivity(intent);
-//        });
-//
-//        findViewById(R.id.card_foods).setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-//            intent.putExtra("number", 4);
-//            startActivity(intent);
-//        });
-//
-//        findViewById(R.id.card_fruits).setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-//            intent.putExtra("number", 5);
-//            startActivity(intent);
-//        });
-//
-//        findViewById(R.id.card_vegetables).setOnClickListener(view -> {
-//            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
-//            intent.putExtra("number", 6);
-//            startActivity(intent);
-//        });
+        findViewById(R.id.card_animals).setOnClickListener(view -> {
+            setGame();
+            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+            intent.putExtra("number", 3);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.card_foods).setOnClickListener(view -> {
+            setGame();
+            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+            intent.putExtra("number", 4);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.card_fruits).setOnClickListener(view -> {
+            setGame();
+            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+            intent.putExtra("number", 5);
+            startActivity(intent);
+        });
+
+        findViewById(R.id.card_vegetables).setOnClickListener(view -> {
+            setGame();
+            Intent intent = new Intent(MainActivity.this, QuestionActivity.class);
+            intent.putExtra("number", 6);
+            startActivity(intent);
+        });
     }
 
     private void setGame() {
         QuizController controller = QuizController.getInstance();
+        controller.setCorrectAns(0);
+        controller.setWrongAns(0);
         controller.setCurrentPos(0);
     }
 }
