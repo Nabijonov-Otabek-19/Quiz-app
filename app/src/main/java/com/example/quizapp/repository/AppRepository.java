@@ -1,4 +1,4 @@
-package com.example.quizapp.Controller;
+package com.example.quizapp.repository;
 
 import com.example.quizapp.R;
 import com.example.quizapp.model.TestData;
@@ -6,10 +6,8 @@ import com.example.quizapp.model.TestData;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
-
-public class QuizController {
+public class AppRepository {
     private List<TestData> list_flag;
     private List<TestData> list_logo;
     private List<TestData> list_animal;
@@ -17,26 +15,24 @@ public class QuizController {
     private List<TestData> list_fruit;
     private List<TestData> list_vegetable;
 
-    private int currentList;
+    private static AppRepository instance;
 
-    private final int MAX_COUNT = 10;
-    private int currentPos = 0;
-    private int wrongCount;
-    private int correctCount;
+    public static AppRepository getInstance() {
+        if (instance == null) instance = new AppRepository();
+        return instance;
+    }
 
-    {
+    private AppRepository() {
         loadTests();
     }
 
-    private QuizController() {
-    }
-
-    private static QuizController controller;
-
-    public static QuizController getInstance() {
-        if (controller == null)
-            controller = new QuizController();
-        return controller;
+    public List<TestData> getNeedDataByCount(int count) {
+        if (count == 1) return list_flag;
+        else if (count == 2) return list_logo;
+        else if (count == 3) return list_animal;
+        else if (count == 4) return list_food;
+        else if (count == 5) return list_fruit;
+        else return list_vegetable;
     }
 
     private void loadTests() {
@@ -47,31 +43,6 @@ public class QuizController {
         shuffleListFruit();
         shuffleListVegetable();
     }
-
-    public int getMAX_COUNT() {
-        return MAX_COUNT;
-    }
-
-    public int getCurrentPos() {
-        return currentPos;
-    }
-
-    public int getWrongCount() {
-        return wrongCount;
-    }
-
-    public int getCorrectCount() {
-        return correctCount;
-    }
-
-    public int getSkipCount() {
-        return currentPos - correctCount - wrongCount;
-    }
-
-    public void setCurrentList(int list) {
-        this.currentList = list;
-    }
-
 
     private void shuffleListFlag() {
         list_flag = new ArrayList<>(10);
@@ -161,81 +132,5 @@ public class QuizController {
         list_vegetable.add(new TestData("Name this vegetable", R.drawable.pepper, "Potato", "Pepper", "Tomato", "Garlic", "Pepper"));
         list_vegetable.add(new TestData("Name this vegetable", R.drawable.cauiflower, "Potato", "Cauiflower", "Cabbage", "Cucumber", "Cauiflower"));
         Collections.shuffle(list_vegetable);
-    }
-
-    public boolean isLastQuestion() {
-        return currentPos < MAX_COUNT;
-    }
-
-    public void setCurrentPos(int currentPos) {
-        this.currentPos = currentPos;
-    }
-
-    public void setCorrectAns(int correctAns) {
-        this.correctCount = correctAns;
-    }
-
-    public void setWrongAns(int wrongAns) {
-        this.wrongCount = wrongAns;
-    }
-
-
-    public TestData getNextTestDataFlag() {
-        return list_flag.get(currentPos++);
-    }
-
-    public TestData getNextTestDataLogo() {
-        return list_logo.get(currentPos++);
-    }
-
-    public TestData getNextTestDataAnimal() {
-        return list_animal.get(currentPos++);
-    }
-
-    public TestData getNextTestDataFood() {
-        return list_food.get(currentPos++);
-    }
-
-    public TestData getNextTestDataFruit() {
-        return list_fruit.get(currentPos++);
-    }
-
-    public TestData getNextTestDataVegetable() {
-        return list_vegetable.get(currentPos++);
-    }
-
-
-    public void testCheck(String userAnswer) {
-        if (currentList == 1) {
-            if (list_flag.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
-                correctCount++;
-            else wrongCount++;
-
-        } else if (currentList == 2) {
-            if (list_logo.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
-                correctCount++;
-            else wrongCount++;
-
-        } else if (currentList == 3) {
-            if (list_animal.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
-                correctCount++;
-            else wrongCount++;
-
-        } else if (currentList == 4) {
-            if (list_food.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
-                correctCount++;
-            else wrongCount++;
-
-        } else if (currentList == 5) {
-            if (list_fruit.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
-                correctCount++;
-            else wrongCount++;
-
-        } else if (currentList == 6) {
-            if (list_vegetable.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT).equals(userAnswer.toLowerCase()))
-                correctCount++;
-            else wrongCount++;
-        }
-
     }
 }
