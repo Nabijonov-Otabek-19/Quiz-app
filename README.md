@@ -1,3 +1,3 @@
 # Quiz-app
 
-Just for fun
+Quiz app with MVP
