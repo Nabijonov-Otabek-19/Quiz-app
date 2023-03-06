@@ -1,5 +1,6 @@
 package com.example.quizapp.ui.game;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
@@ -79,7 +80,14 @@ public class GameActivity extends AppCompatActivity implements GameContract.View
         });
 
         buttonBack.setOnClickListener(v -> {
-            presenter.clickBackButton();
+            new AlertDialog.Builder(this)
+                    .setTitle("Exit").setMessage("Do you want to finish test ?")
+                    .setPositiveButton("Yes", (dialogInterface, i) -> {
+                        presenter.clickBackButton();
+                    })
+                    .setNegativeButton("No", (dialogInterface, i) -> {
+                        dialogInterface.cancel();
+                    }).create().show();
         });
 
         for (int i = 0; i < radios.size(); i++) {
