@@ -1,6 +1,11 @@
 package com.example.quizapp.ui.game;
 
+import android.app.Dialog;
 import android.content.Context;
+
+import androidx.appcompat.widget.AppCompatButton;
+
+import com.example.quizapp.R;
 
 public class GamePresenter implements GameContract.Presenter {
 
@@ -24,6 +29,26 @@ public class GamePresenter implements GameContract.Presenter {
         } else {
             view.openResultActivity();
         }
+    }
+
+    @Override
+    public void showCustomDialog() {
+        Dialog dialog = new Dialog((Context) view);
+        dialog.setContentView(R.layout.custom_exit_dialog);
+
+        AppCompatButton btnNo = dialog.findViewById(R.id.textViewNo);
+        AppCompatButton btnYes = dialog.findViewById(R.id.textViewYes);
+
+        btnNo.setOnClickListener(view -> {
+            dialog.dismiss();
+        });
+
+        btnYes.setOnClickListener(view -> {
+            dialog.dismiss();
+            this.view.closeScreen();
+        });
+        dialog.create();
+        dialog.show();
     }
 
     @Override

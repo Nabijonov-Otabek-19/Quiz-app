@@ -25,6 +25,7 @@ public interface GameContract {
     }
 
     interface Presenter {
+        void showCustomDialog();
         int getCorrectAns();
         int getWrongAns();
         int getSkippedAns();

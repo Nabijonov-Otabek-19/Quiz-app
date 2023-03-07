@@ -1,10 +1,7 @@
 package com.example.quizapp.ui.game;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -16,7 +13,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.example.quizapp.R;
-import com.example.quizapp.ui.main.MainContract;
 import com.example.quizapp.ui.result.ResultActivity;
 import com.example.quizapp.model.TestData;
 
@@ -26,7 +22,6 @@ import java.util.List;
 public class GameActivity extends AppCompatActivity implements GameContract.View {
 
     private GameContract.Presenter presenter;
-    private GameContract.Model model;
 
     private List<RadioButton> radios;
     private List<AppCompatTextView> variants;
@@ -42,6 +37,7 @@ public class GameActivity extends AppCompatActivity implements GameContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
 
+
         loadViews();
         attachClickListener();
         int number = getIntent().getIntExtra("number", 0);
@@ -49,6 +45,7 @@ public class GameActivity extends AppCompatActivity implements GameContract.View
     }
 
     private void loadViews() {
+
         radios = new ArrayList<>(4);
         radios.add(findViewById(R.id.radio1));
         radios.add(findViewById(R.id.radio2));
@@ -71,24 +68,12 @@ public class GameActivity extends AppCompatActivity implements GameContract.View
     }
 
     private void attachClickListener() {
-        buttonNext.setOnClickListener(v -> {
-            presenter.clickNextButton();
-        });
 
-        buttonSkip.setOnClickListener(v -> {
-            presenter.clickSkipButton();
-        });
+        buttonNext.setOnClickListener(v -> presenter.clickNextButton());
 
-        buttonBack.setOnClickListener(v -> {
-            new AlertDialog.Builder(this)
-                    .setTitle("Exit").setMessage("Do you want to finish test ?")
-                    .setPositiveButton("Yes", (dialogInterface, i) -> {
-                        presenter.clickBackButton();
-                    })
-                    .setNegativeButton("No", (dialogInterface, i) -> {
-                        dialogInterface.cancel();
-                    }).create().show();
-        });
+        buttonSkip.setOnClickListener(v -> presenter.clickSkipButton());
+
+        buttonBack.setOnClickListener(v -> presenter.showCustomDialog());
 
         for (int i = 0; i < radios.size(); i++) {
             radios.get(i).setTag(i);
