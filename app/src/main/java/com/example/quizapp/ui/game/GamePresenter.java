@@ -2,10 +2,14 @@ package com.example.quizapp.ui.game;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.quizapp.R;
+import com.example.quizapp.model.AnswerData;
+
+import java.util.List;
 
 public class GamePresenter implements GameContract.Presenter {
 
@@ -39,9 +43,7 @@ public class GamePresenter implements GameContract.Presenter {
         AppCompatButton btnNo = dialog.findViewById(R.id.textViewNo);
         AppCompatButton btnYes = dialog.findViewById(R.id.textViewYes);
 
-        btnNo.setOnClickListener(view -> {
-            dialog.dismiss();
-        });
+        btnNo.setOnClickListener(view -> dialog.dismiss());
 
         btnYes.setOnClickListener(view -> {
             dialog.dismiss();

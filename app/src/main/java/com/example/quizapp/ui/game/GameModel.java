@@ -1,7 +1,6 @@
 package com.example.quizapp.ui.game;
 
-import android.util.Log;
-
+import com.example.quizapp.model.AnswerData;
 import com.example.quizapp.model.TestData;
 import com.example.quizapp.repository.AppRepository;
 
@@ -19,20 +18,22 @@ public class GameModel implements GameContract.Model {
     private int correctCount;
 
 
-    GameModel(int category) {
+    public GameModel(int category) {
         repository = AppRepository.getInstance();
         test = new ArrayList<>();
         test.addAll(repository.getNeedDataByCount(category));
     }
 
-
-
     @Override
     public void check(String userAnswer) {
         if (test.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT)
-                .equals(userAnswer.toLowerCase(Locale.ROOT)))
+                .equals(userAnswer.toLowerCase(Locale.ROOT))) {
             correctCount++;
-        else wrongCount++;
+            repository.setAnswerDataList(currentPos - 1, test.get(currentPos - 1).getImage(), userAnswer, test.get(currentPos - 1).getAnswer());
+        } else {
+            wrongCount++;
+            repository.setAnswerDataList(currentPos - 1, test.get(currentPos - 1).getImage(), userAnswer, test.get(currentPos - 1).getAnswer());
+        }
     }
 
     @Override
@@ -69,4 +70,5 @@ public class GameModel implements GameContract.Model {
     public int getTotalCount() {
         return MAX_COUNT;
     }
+
 }

@@ -1,6 +1,7 @@
 package com.example.quizapp.repository;
 
 import com.example.quizapp.R;
+import com.example.quizapp.model.AnswerData;
 import com.example.quizapp.model.TestData;
 
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class AppRepository {
     private List<TestData> list_fruit;
     private List<TestData> list_vegetable;
 
+    private List<AnswerData> answerDataList;
+
     private static AppRepository instance;
 
     public static AppRepository getInstance() {
@@ -24,6 +27,19 @@ public class AppRepository {
 
     private AppRepository() {
         loadTests();
+        answerDataList = new ArrayList<>();
+    }
+
+    public void clearAllAnswer(){
+        answerDataList.clear();
+    }
+
+    public void setAnswerDataList(int id, int image, String userAns, String corrAns) {
+        answerDataList.add(new AnswerData(id, image, userAns, corrAns));
+    }
+
+    public List<AnswerData> getAnswerDataList() {
+        return answerDataList;
     }
 
     public List<TestData> getNeedDataByCount(int count) {

@@ -10,6 +10,11 @@ public class ResultPresenter implements ResultContract.Presenter {
 
 
     @Override
+    public void showAllAnswers() {
+        view.showAllAnswers();
+    }
+
+    @Override
     public void clickBtnBackMenu() {
         view.BackMenu();
     }

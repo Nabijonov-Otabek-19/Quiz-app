@@ -1,8 +1,10 @@
 package com.example.quizapp.ui.game;
 
-import android.content.Context;
 
+import com.example.quizapp.model.AnswerData;
 import com.example.quizapp.model.TestData;
+
+import java.util.List;
 
 public interface GameContract {
     interface Model {
@@ -14,6 +16,7 @@ public interface GameContract {
         int getWrongAns();
         int getSkippedAns();
         int getTotalCount();
+
     }
 
     interface View {
@@ -33,5 +36,6 @@ public interface GameContract {
         void clickNextButton();
         void clickBackButton();
         void selectUserAnswer(String userAns);
+
     }
 }

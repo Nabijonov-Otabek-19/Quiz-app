@@ -2,6 +2,7 @@ package com.example.quizapp.ui.game;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -13,9 +14,11 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.example.quizapp.R;
+import com.example.quizapp.model.AnswerData;
 import com.example.quizapp.ui.result.ResultActivity;
 import com.example.quizapp.model.TestData;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
