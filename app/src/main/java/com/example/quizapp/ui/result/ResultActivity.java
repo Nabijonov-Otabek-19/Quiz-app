@@ -101,6 +101,5 @@ public class ResultActivity extends AppCompatActivity implements ResultContract.
                 container.addView(view);
             });
         }
-
     }
 }

@@ -1,6 +1,5 @@
 package com.example.quizapp.ui.game;
 
-import com.example.quizapp.model.AnswerData;
 import com.example.quizapp.model.TestData;
 import com.example.quizapp.repository.AppRepository;
 
@@ -29,10 +28,10 @@ public class GameModel implements GameContract.Model {
         if (test.get(currentPos - 1).getAnswer().toLowerCase(Locale.ROOT)
                 .equals(userAnswer.toLowerCase(Locale.ROOT))) {
             correctCount++;
-            repository.setAnswerDataList(currentPos - 1, test.get(currentPos - 1).getImage(), userAnswer, test.get(currentPos - 1).getAnswer());
+            repository.setAnswerDataList(currentPos, test.get(currentPos - 1).getImage(), userAnswer, test.get(currentPos - 1).getAnswer());
         } else {
             wrongCount++;
-            repository.setAnswerDataList(currentPos - 1, test.get(currentPos - 1).getImage(), userAnswer, test.get(currentPos - 1).getAnswer());
+            repository.setAnswerDataList(currentPos, test.get(currentPos - 1).getImage(), userAnswer, test.get(currentPos - 1).getAnswer());
         }
     }
 
