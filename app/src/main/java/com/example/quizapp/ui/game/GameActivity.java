@@ -2,10 +2,8 @@ package com.example.quizapp.ui.game;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +12,9 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.example.quizapp.R;
-import com.example.quizapp.model.AnswerData;
-import com.example.quizapp.ui.result.ResultActivity;
 import com.example.quizapp.model.TestData;
+import com.example.quizapp.ui.result.ResultActivity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,7 +118,6 @@ public class GameActivity extends AppCompatActivity implements GameContract.View
 
     @Override
     public void openResultActivity() {
-        Toast.makeText(GameActivity.this, "Finish", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(GameActivity.this, ResultActivity.class);
         intent.putExtra("correct", presenter.getCorrectAns());
         intent.putExtra("wrong", presenter.getWrongAns());
