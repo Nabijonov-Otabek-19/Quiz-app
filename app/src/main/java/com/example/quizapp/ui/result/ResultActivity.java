@@ -84,19 +84,18 @@ public class ResultActivity extends AppCompatActivity implements ResultContract.
                 View view = inflater.inflate(R.layout.item_answers, container, false);
                 image = view.findViewById(R.id.img_Ans);
                 userAns = view.findViewById(R.id.txt_userAns);
-                correctAns = view.findViewById(R.id.txt_corrAns);
+                corrAns = view.findViewById(R.id.txt_corrAns);
                 id = view.findViewById(R.id.txt_id);
 
                 image.setImageResource(answerData.getImage());
-                correctAns.setText(answerData.getCorrectAns());
-                correctAns.setTextColor(getColor(R.color.green));
+                corrAns.setText(answerData.getCorrectAns());
+                corrAns.setTextColor(getColor(R.color.green));
                 id.setText(String.valueOf(answerData.getId()));
                 userAns.setText(answerData.getUserAns());
 
                 if (answerData.getCorrectAns().equals(answerData.getUserAns())) {
                     userAns.setTextColor(getColor(R.color.green));
                 } else userAns.setTextColor(getColor(R.color.red));
-
 
                 container.addView(view);
             });
